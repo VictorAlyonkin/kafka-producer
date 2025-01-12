@@ -1,0 +1,46 @@
+1. Скачать архив (Binary downloads:
+    Scala 2.12  - kafka_2.12-3.9.0.tgz (asc, sha512)
+    )
+https://kafka.apache.org/downloads
+
+ниже инструкция с оф. сайта
+https://kafka.apache.org/quickstart
+
+2. Разархивировать дважды
+
+3. Выполняем запуск среды кафки:
+а) Открыть консоль в разархивированном файле. Запустить сервис ZooKeeper
+$ bin/zookeeper-server-start.sh config/zookeeper.properties
+б) Открыть консоль в разархивированном файле. Запустить брокерскую службу Kafka
+$ bin/kafka-server-start.sh config/server.properties
+в) дождаться запуска
+
+г) Открыть консоль в разархивированном файле. Создать топик. Если ранее топик создавался, то пропускать этот пункт
+$ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server localhost:9092
+
+
+
+ж) Создать читателя Read the events (Consumer, потребитель)
+$ bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+
+е)Создать писателя Write some events into the topic (Produser, производитель)
+$ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
+>This is my first event
+>This is my second event
+
+
+_________________________
+
+Для мини инфо.
+
+увеличить количество партиций:
+открыть консоль в разархивированном файле
+$ bin/kafka-topics.sh --bootstrap-server localhost:9092 --alter --topic quickstart-events --partitions 6
+
+посмотреть инфо о топике
+открыть консоль в разархивированном файле:
+$ bin/kafka-topics.sh --describe --topic quickstart-events --bootstrap-server localhost:9092
+
+удалить созданные топик
+
+$ bin/kafka-topics.sh --delete --zookeeper localhost:9092 --quickstart-events

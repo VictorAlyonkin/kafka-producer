@@ -23,7 +23,7 @@ $ bin/kafka-topics.sh --create --topic quickstart-events --bootstrap-server loca
 ж) Создать читателя Read the events (Consumer, потребитель)
 $ bin/kafka-console-consumer.sh --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
 
-е)Создать писателя Write some events into the topic (Produser, производитель)
+е)Создать писателя Write some events into the topic (Producer, производитель)
 $ bin/kafka-console-producer.sh --topic quickstart-events --bootstrap-server localhost:9092
 >This is my first event
 >This is my second event

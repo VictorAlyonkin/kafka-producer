@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.common.errors.SerializationException;
 import org.apache.kafka.common.serialization.Serializer;
-import org.petrarka.producer.transaction.dto.Transaction;
+import org.petrarka.dto.Transaction;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;

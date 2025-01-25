@@ -1,7 +1,7 @@
-package org.petrarka.producer.general;
+package org.petrarka.general;
 
 import lombok.Data;
-import org.petrarka.producer.general.config.AbstractKafkaConfig;
+import org.petrarka.general.config.AbstractKafkaConfig;
 
 @Data
 public abstract class AbstractProducer<T> {
@@ -12,7 +12,7 @@ public abstract class AbstractProducer<T> {
     protected T object;
 
     /**
-     * Путь до JSON схемы для валиации
+     * Путь до JSON схемы для валидации
      */
     protected String pathToFileJsonSchema;
 

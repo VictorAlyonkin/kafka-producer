@@ -5,7 +5,7 @@ import org.apache.kafka.clients.producer.Partitioner;
 import org.apache.kafka.common.Cluster;
 import org.apache.kafka.common.InvalidRecordException;
 import org.apache.kafka.common.PartitionInfo;
-import org.petrarka.producer.transaction.dto.Transaction;
+import org.petrarka.dto.Transaction;
 
 import java.util.List;
 import java.util.Map;

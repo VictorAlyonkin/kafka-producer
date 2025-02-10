@@ -1,11 +1,12 @@
-package org.petrarka.service;
+package org.petrarka.service.producer;
 
 import org.apache.kafka.common.security.oauthbearer.internals.secured.ValidateException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.petrarka.dto.OperationType;
+import org.petrarka.dto.Transaction;
+import org.petrarka.producer.service.KafkaProducerService;
 import org.petrarka.producer.transaction.TransactionProducer;
-import org.petrarka.producer.transaction.dto.OperationType;
-import org.petrarka.producer.transaction.dto.Transaction;
 
 import java.math.BigInteger;
 import java.time.LocalDateTime;
@@ -22,7 +23,7 @@ public class KafkaProducerServiceTest {
                 "1234567890",
                 LocalDateTime.now().toString()
         );
-        Assertions.assertDoesNotThrow(() -> KafkaProducerService.sendAsync(new TransactionProducer(transaction)));
+        Assertions.assertDoesNotThrow(() -> KafkaProducerService.execute(new TransactionProducer(transaction)));
     }
 
     @Test
@@ -33,7 +34,7 @@ public class KafkaProducerServiceTest {
                 "1234567890",
                 LocalDateTime.now().toString()
         );
-        Assertions.assertDoesNotThrow(() -> KafkaProducerService.sendAsync(new TransactionProducer(transaction)));
+        Assertions.assertDoesNotThrow(() -> KafkaProducerService.execute(new TransactionProducer(transaction)));
     }
 
     @Test
@@ -44,7 +45,7 @@ public class KafkaProducerServiceTest {
                 "1234567890",
                 LocalDateTime.now().toString()
         );
-        Assertions.assertDoesNotThrow(() -> KafkaProducerService.sendAsync(new TransactionProducer(transaction)));
+        Assertions.assertDoesNotThrow(() -> KafkaProducerService.execute(new TransactionProducer(transaction)));
     }
 
     @Test
@@ -56,7 +57,7 @@ public class KafkaProducerServiceTest {
                 LocalDateTime.now().toString()
         );
         ValidateException validateException = Assertions.assertThrows(ValidateException.class,
-                () -> KafkaProducerService.sendAsync(new TransactionProducer(transaction)));
+                () -> KafkaProducerService.execute(new TransactionProducer(transaction)));
 
         Assertions.assertAll(
                 () -> assertEquals("$.amount: must have a minimum value of 0", validateException.getMessage())

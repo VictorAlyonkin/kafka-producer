@@ -2,9 +2,9 @@ package org.petrarka.producer.transaction;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.petrarka.producer.general.AbstractProducer;
+import org.petrarka.general.AbstractProducer;
 import org.petrarka.producer.transaction.config.TransactionKafkaConfig;
-import org.petrarka.producer.transaction.dto.Transaction;
+import org.petrarka.dto.Transaction;
 
 @Data
 @EqualsAndHashCode(callSuper = true)

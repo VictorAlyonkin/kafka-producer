@@ -1,4 +1,4 @@
-package org.petrarka.producer.transaction.dto;
+package org.petrarka.dto;
 
 /**
  * Тип операции

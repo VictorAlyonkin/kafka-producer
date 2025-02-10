@@ -2,7 +2,7 @@ package org.petrarka.producer.transaction.config;
 
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
-import org.petrarka.producer.general.config.AbstractKafkaConfig;
+import org.petrarka.general.config.AbstractKafkaConfig;
 
 import java.io.IOException;
 import java.io.InputStream;

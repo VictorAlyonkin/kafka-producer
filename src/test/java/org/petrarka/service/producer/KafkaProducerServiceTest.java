@@ -23,7 +23,8 @@ public class KafkaProducerServiceTest {
                 "1234567890",
                 LocalDateTime.now().toString()
         );
-        Assertions.assertDoesNotThrow(() -> KafkaProducerService.execute(new TransactionProducer(transaction)));
+        KafkaProducerService<Object> kafkaProducerService = new KafkaProducerService<>();
+        Assertions.assertDoesNotThrow(() -> kafkaProducerService.execute(new TransactionProducer(transaction)));
     }
 
     @Test
@@ -34,7 +35,8 @@ public class KafkaProducerServiceTest {
                 "1234567890",
                 LocalDateTime.now().toString()
         );
-        Assertions.assertDoesNotThrow(() -> KafkaProducerService.execute(new TransactionProducer(transaction)));
+        KafkaProducerService<Object> kafkaProducerService = new KafkaProducerService<>();
+        Assertions.assertDoesNotThrow(() -> kafkaProducerService.execute(new TransactionProducer(transaction)));
     }
 
     @Test
@@ -45,7 +47,8 @@ public class KafkaProducerServiceTest {
                 "1234567890",
                 LocalDateTime.now().toString()
         );
-        Assertions.assertDoesNotThrow(() -> KafkaProducerService.execute(new TransactionProducer(transaction)));
+        KafkaProducerService<Object> kafkaProducerService = new KafkaProducerService<>();
+        Assertions.assertDoesNotThrow(() -> kafkaProducerService.execute(new TransactionProducer(transaction)));
     }
 
     @Test
@@ -56,8 +59,10 @@ public class KafkaProducerServiceTest {
                 "1234567890",
                 LocalDateTime.now().toString()
         );
+
+        KafkaProducerService<Object> kafkaProducerService = new KafkaProducerService<>();
         ValidateException validateException = Assertions.assertThrows(ValidateException.class,
-                () -> KafkaProducerService.execute(new TransactionProducer(transaction)));
+                () -> kafkaProducerService.execute(new TransactionProducer(transaction)));
 
         Assertions.assertAll(
                 () -> assertEquals("$.amount: must have a minimum value of 0", validateException.getMessage())

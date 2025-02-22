@@ -55,8 +55,10 @@ public class KafkaConsumerServiceTest {
                 "1234567890",
                 LocalDateTime.now().toString()
         ));
+
+        KafkaProducerService<Transaction> kafkaProducerService = new KafkaProducerService<>();
         for (Transaction transaction : transactions) {
-            KafkaProducerService.execute(new TransactionProducer(transaction));
+            kafkaProducerService.execute(new TransactionProducer(transaction));
         }
 
     }

@@ -49,6 +49,7 @@ public class CheckerSendTransactions {
                 hashTransactions.getStartDateTime(),
                 hashTransactions.getFinishDateTime());
 
-        actualTransactions.forEach(transaction -> KafkaProducerService.execute(new TransactionProducer(transaction)));
+        KafkaProducerService<Transaction> kafkaProducerService = new KafkaProducerService<>();
+        actualTransactions.forEach(transaction -> kafkaProducerService.execute(new TransactionProducer(transaction)));
     }
 }
